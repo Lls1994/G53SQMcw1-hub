@@ -43,6 +43,9 @@ public class WebServerMain {
         
         try {
             WebServer server = new WebServer(rootDir, port);
+            System.out.println("Jibble web server (modified by Liang Sheng Lee for G53SQM)");
+            System.out.println("Root Directory: " + rootDir );
+            System.out.println("Port: " + port);
             server.activate();
         }
         catch (WebServerException e) {
