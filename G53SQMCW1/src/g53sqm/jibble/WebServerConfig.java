@@ -35,9 +35,9 @@ public class WebServerConfig {
     
     public static final String VERSION = "<a href=\"http://www.jibble.org\">Jibble Web Server 1.0</a> - An extremely small Java web server";
     
-    public static final String DEFAULT_ROOT_DIRECTORY = "C:\\Users\\Liang Sheng\\Desktop\\G53SQM\\jibble\\webfiles";
+    //public static final String DEFAULT_ROOT_DIRECTORY = "C:\\Users\\Liang Sheng\\Desktop\\G53SQM\\jibble\\webfiles";
     //Needs to be change so that it does not point to the directory in my local machine
-    public static final int DEFAULT_PORT = 8088;
+    //public static final int DEFAULT_PORT = 8088;
     
     public static final String[] DEFAULT_FILES = new String[] {"index.html", "index.htm", "index.shtml", "index.shtm", "index.stm", "index.sht"};
     
