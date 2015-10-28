@@ -1,0 +1,28 @@
+<project name = "G53SQM-cw1">
+	
+	<target name = "clean">
+		<delete dir = "build" />
+	</target>
+	
+	<target name = "compile" depends = "clean">
+		<mkdir dir = "build\webserver"/>
+		<javac srcdir = "src"
+			   destdir = "build\webserver"
+			   includeantruntime = "false" />
+	</target>
+	
+	<target name="jar" depends="compile">
+		<jar destfile = "build\jar\jibble.jar"
+			 basedir = "build\webserver">
+			
+				<manifest>
+					<attribute name = "Main-Class" value = "g53sqm.jibble.WebServerMain"/>
+				</manifest>	
+		</jar>			
+	</target>
+	
+	<target name = "run" depends = "jar">
+		<java jar = "build\jar\jibble.jar" fork = "true" />
+	</target>
+	
+</project>
