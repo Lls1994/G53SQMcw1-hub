@@ -1,4 +1,8 @@
 package g53sqm.jibble;
+
+import java.io.File;
+import java.io.IOException;
+
 /* 
 Copyright Paul James Mutton, 2001-2004, http://www.jibble.org/
 
@@ -25,11 +29,26 @@ public class WebServerMain {
 
     public static void main(String[] args) {
         
-        String rootDir = WebServerConfig.DEFAULT_ROOT_DIRECTORY;
-        int port = WebServerConfig.DEFAULT_PORT;
+        String rootDir = "";
+        int port = 0;
         
+        if (args.length == 0) {
+        	File file = new File("C:\\Users\\Liang Sheng\\Desktop\\G53SQM\\jibble\\webfiles");
+        	try {
+  				rootDir = file.getCanonicalPath();
+  				port = 8088;
+  			} catch (IOException e) {
+  				e.printStackTrace();
+  			}
+        }
+       
         if (args.length > 0) {
-            rootDir = args[0];
+        	File file = new File("C:\\Users\\Liang Sheng\\Desktop\\G53SQM\\jibble\\" + args[0]);
+            try {
+				rootDir = file.getCanonicalPath();
+			} catch (IOException e) {
+				e.printStackTrace();
+			}
         }
         
         if (args.length > 1) {
