@@ -1,6 +1,5 @@
 package g53sqm.jibble;
 
-import java.io.File;
 import java.io.IOException;
 
 /* 
@@ -27,28 +26,13 @@ $Id: WebServerMain.java,v 1.2 2004/02/01 13:37:35 pjm2 Exp $
  */
 public class WebServerMain {
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws IOException {
         
-        String rootDir = "";
-        int port = 0;
+        String rootDir = WebServerConfig.locations.getCanonicalPath();
+        int port = WebServerConfig.DEFAULT_PORT;
         
-        if (args.length == 0) {
-        	File file = new File("C:\\Users\\Liang Sheng\\Desktop\\G53SQM\\jibble\\webfiles");
-        	try {
-  				rootDir = file.getCanonicalPath();
-  				port = 8088;
-  			} catch (IOException e) {
-  				e.printStackTrace();
-  			}
-        }
-       
-        if (args.length > 0) {
-        	File file = new File("C:\\Users\\Liang Sheng\\Desktop\\G53SQM\\jibble\\" + args[0]);
-            try {
-				rootDir = file.getCanonicalPath();
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+        if(args.length > 0) {
+        	rootDir = WebServerConfig.locations.getCanonicalPath()+ "\\" +args[0];
         }
         
         if (args.length > 1) {
@@ -65,6 +49,7 @@ public class WebServerMain {
             System.out.println("Jibble web server (modified by Liang Sheng Lee for G53SQM)");
             System.out.println("Root Directory: " + rootDir );
             System.out.println("Port: " + port);
+            System.out.println("asdf");
             server.activate();
         }
         catch (WebServerException e) {
